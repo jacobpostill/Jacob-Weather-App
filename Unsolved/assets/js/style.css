@@ -5,6 +5,7 @@
   --light-dark: #6f6866;
   --dark: #38302e;
   --border-radius: .3rem;
+  --white: white;
 }
 
 * {
@@ -21,7 +22,15 @@ body {
   font-size: 16px;
 }
 
-h1,
+h1{
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  line-height: 1.25;
+}
+
+
+
 h2,
 h3,
 h4,
@@ -105,11 +114,11 @@ p {
 .app-title {
   font-size: 3rem;
   background-color: var(--primary);
-  color: var(--dark);
+  color: var(--primary);
   padding: 0 10px;
   display: inline-block;
   border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light-dark);
+  box-shadow: 6px 5px var(--dark);
 }
 
 .list-group {
