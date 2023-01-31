@@ -23,67 +23,44 @@ var buttonClickHandler = function (event) {
   var language = event.target.getAttribute('data-language');
 
   if (language) {
-    getFeaturedRepos(language);
+    getlocation(language);
 
     repoContainerEl.textContent = '';
   }
 };
 
-var getlocation = function (user) {
+function currentURL() {
+    var currentUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=2ca1c9e6889192710f3b59dc0b31f2bf';
+    console.log(currentUrl)
+    fetch(currentUrl)
+      .then(function (response1) {
+          return response1.json() })
+      .then(function (currentUrlInfo) {
+        $('#name_of_city').text(currentUrlInfo.name);
+        $('#image_main').attr('src', img_main);
+        $('#temp_main').text(currentUrlInfo.main.temp + "°F");
+        $('#wind_main').text(currentUrlInfo.wind.speed + " MPH");
+        $('#humidity_main').text(currentUrlInfo.main.humidity + "%");
+        var img_main = "http://openweathermap.org/img/w/" + currentUrlInfo.weather[0].icon + ".png";
+    
+})}
+
+function getlocation() {
   var apiUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + place + '&limit=10&appid=2ca1c9e6889192710f3b59dc0b31f2bf';
   console.log(apiUrl)
   fetch(apiUrl)
     .then(function (response) {
-      if (response.ok) {
-        console.log(response);
-        response.json().then(function (data) {
-          console.log(data);
-          displayRepos(data, user);
-        });
-      } else {
-        alert('Error: ' + response.statusText);
-      }
+        return response.json() })
+    then(function (cityInfo) {
+        latitude = cityInfo[0].lat;
+        longitude = cityInfo[0].lon;
+        console.log(latitude);
+        console.log(longitude);
+        getCurrentWeatherUrl();
+        getWeatherUrl();
     })
     .catch(function (error) {
       alert('Unable to connect to city');
-    });
+    })
+    ;
 };
-
-var displayRepos = function (repos, searchTerm) {
-    if (repos.length === 0) {
-      repoContainerEl.textContent = 'No city found.';
-      return;
-    }
-  
-    repoSearchTerm.textContent = searchTerm;
-  
-    for (var i = 0; i < repos.length; i++) {
-      var repoName = repos[i].owner.login + '/' + repos[i].name;
-  
-      var repoEl = document.createElement('a');
-      repoEl.classList = 'list-item flex-row justify-space-between align-center';
-      repoEl.setAttribute('href', './single-repo.html?repo=' + repoName);
-  
-      var titleEl = document.createElement('span');
-      titleEl.textContent = repoName;
-  
-      repoEl.appendChild(titleEl);
-  
-      var statusEl = document.createElement('span');
-      statusEl.classList = 'flex-row align-center';
-  
-      if (repos[i].open_issues_count > 0) {
-        statusEl.innerHTML =
-          "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + ' issue(s)';
-      } else {
-        statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-      }
-  
-      repoEl.appendChild(statusEl);
-  
-      repoContainerEl.appendChild(repoEl);
-    }
-  };
-  
-
-  

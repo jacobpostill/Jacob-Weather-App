@@ -19,14 +19,15 @@
             <h3 class="card-header text-uppercase">Search by City</h3>
             <form id="user-form" class="card-body">
               <label class="form-label" for="username">City</label>
-              <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn">Get the Weather</button>
+              <input name="username" id="cityname" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn" id="startBtn">Get the Weather</button>
+              <h2 id="cityName2"></h2>
             </form>
           </div>
 
           <div class="weather_main col-9 pt-3">
             <div class="bg-light p-3">
-                    <h2 class="justify-content-center text-dark" id="name_of_city"><span id="city" class="fs-2 fw-bold"></span><span></span></h2>
+                    <h2 class="justify-content-center text-dark" id="name_of_city"><span id="city" class="fs-2 fw-bold"></span><img id="image_main" src="" alt="weather icon"></span></h2>
                     <div class="row">
                         <div class="col-6">
                             <p id="temp_main">Temperature: <span id="temp_main"></span></p>
@@ -43,7 +44,7 @@
             <div class="row justify-content-center">
                 <div id="day_1" class="card-body mx-2 my-2">
                     <h5 id="date_1"></h5>
-                    <img id="day_1_img" src="">
+                    <img id="day_img_1" src="">
                     <p id="temp_1"></p>
                     <p id="wind_1"></p>
                     <p id="hum_1"></p>
@@ -51,27 +52,27 @@
                 </div>
                 <div id="day_2" class="card-body mx-2 my-2">
                     <h5 id="date_2"></h5>
-                    <img id="day_2_img" src="">
+                    <img id="day_img_2" src="">
                     <p id="temp_2"></p>
                     <p id="wind_2"></p>
                     <p id="hum_2"></p>
                 </div>
                 <div id="day_3" class="card-body mx-2 my-2">
                     <h5 id="date_3"></h5>
-                    <img id="day_3_img" src="">
+                    <img id="day_img_3" src="">
                     <p id="temp_3"></p>
                     <p id="wind_3"></p>
                     <p id="hum_3"></p>
-                    <div id="day_4" class="card-body mx-2 my-2">
-                        <h5 id="date_4"></h5>
-                        <img id="day_4_img" src="">
-                        <p id="temp_4"></p>
-                        <p id="wind_4"></p>
-                        <p id="hum_4"></p>
+                <div id="day_4" class="card-body mx-2 my-2">
+                    <h5 id="date_4"></h5>
+                    <img id="day_img_4" src="">
+                    <p id="temp_4"></p>
+                    <p id="wind_4"></p>
+                    <p id="hum_4"></p>
                 </div>
                 <div id="day_5" class="card-body mx-2 my-2">
                     <h5 id="date_5"></h5>
-                    <img id="day_5_img" src="">
+                    <img id="day_img_5" src="">
                     <p id="temp_5"></p>
                     <p id="wind_5"></p>
                     <p id="hum_5"></p>
@@ -79,7 +80,7 @@
             </div>
         </div>
 
-    <script src="./Assets/js/script.js"></script>
+    <script src="./Assets/js/script2.js"></script>
 </body>
 
 </html>
