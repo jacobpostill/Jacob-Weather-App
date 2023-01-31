@@ -15,39 +15,34 @@ function search() {
 
 function fiveDaysDisplay() {
     for (let i=1; i< week.length;) {
-        $('#date_' + i).text(days[i].dt_txt);
-        let icon = "http://openweathermap.org/img/w/" + days[i].weather[0].icon + ".png";
-        $('#day_img_' + i).attr('src', iconUrl);
-        $('#temp_' + i).text(`Temp: ${days[i].main.temp}°F`);
-        $('#wind_' + i).text(`Wind: ${days[i].wind.speed} MPH`);
-        $('#hum_3' + i).text(`Humidity: ${days[i].main.humidity}%`);
+        $('#date_' + i).text(week[i].dt_txt);
+        let icon = "http://openweathermap.org/img/w/" + week[i].weather[0].icon + ".png";
+        $('#day_img_' + i).attr('src', icon);
+        $('#temp_' + i).text(`Temp: ${week[i].main.temp}°F`);
+        $('#wind_' + i).text(`Wind: ${week[i].wind.speed} MPH`);
+        $('#hum_3' + i).text(`Humidity: ${week[i].main.humidity}%`);
         i = i + 8;
 }}
 
 function fiveDaysURL () {
-    fetch("api.openweathermap.org/data/2.5/forecast?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d")
-        .then(function (weatherFive) {
-            return weatherFive.json();
-        })
-        .then(function (weatherInfo) {
-            week = weatherInfo.list;
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d")
+        .then(response => response.json())
+        .then(function (fiveDaysData) {
+            week = fiveDaysData.list
             fiveDaysDisplay()
-        })
-}
+        }
+)}
 
 function liveWeather () {
-    liveWeatherURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d"
-    fetch(liveWeatherURL)
-        .then(function (liveResponse) {
-            return liveResponse.json();
-        })
+    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d")
+        .then(response => response.json())
         .then(function (liveData) {
             $('#city').text(liveData.name);
             var weatherIcon = "http://openweathermap.org/img/w/" + liveData.weather[0].icon + ".png";
             $('#image_main').attr('src', weatherIcon);
-            $('#temp_main').text(liveData.main.temp + "°F");
-            $('#wind_main').text(liveData.wind.speed + " MPH");
-            $('#humidity_main').text(liveData.main.humidity + "%");
+            $('#temp_main').text("Temperature: " + liveData.main.temp + "°F");
+            $('#wind_main').text("Wind Speeds: " + liveData.wind.speed + " MPH");
+            $('#humidity_main').text("Humidity: " + liveData.main.humidity + "%");
 
     })
 }
