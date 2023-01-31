@@ -2,8 +2,10 @@ const cityName = document.getElementById("cityname")
 const cityName2 = document.getElementById("cityName2")
 const btn = document.getElementById("startBtn")
 btn.addEventListener('click', search);
+let liveWeatherURL;
 
 function search() {
+    event.preventDefault()
     cityName2.innerHTML = cityName.value
     liveWeather();
     fiveDaysURL ()
@@ -34,7 +36,8 @@ function fiveDaysURL () {
 }
 
 function liveWeather () {
-    fetch("api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d")
+    liveWeatherURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName.value + "&appid=cd488a486e6222f3039ecabe1a0d648d"
+    fetch(liveWeatherURL)
         .then(function (liveResponse) {
             return liveResponse.json();
         })
