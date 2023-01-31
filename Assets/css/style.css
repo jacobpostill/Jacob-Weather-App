@@ -18,7 +18,6 @@ body {
     margin-bottom: 20px;
     
   }
-
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
@@ -34,6 +33,12 @@ body {
 
 .card-body {
   padding: 2.5%;
+}
+#startBtn{
+    background-color: dodgerblue;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 10px;
 }
 
 .form-label,
@@ -52,8 +57,12 @@ body {
   padding: 3%;
   margin: 5px 0;
   font-size: 1.2rem;
-  border: 2px solid var(--light-dark);
-  border-radius: var(--border-radius);
+  border: 2px solid black;
+  border-radius: black;
+}
+
+#cityName{
+    border: 1px black;
 }
 
 h1,

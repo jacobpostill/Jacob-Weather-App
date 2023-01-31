@@ -6,7 +6,7 @@ let liveWeatherURL;
 
 function search() {
     event.preventDefault()
-    cityName2.innerHTML = cityName.value
+    cityName.innerHTML = cityName.value
     liveWeather();
     fiveDaysURL ()
 }
@@ -25,6 +25,8 @@ function fiveDaysDisplay() {
         console.log(week.length)
         i = i + 8; 
         j++
+    $('fivedaytext').text("Five Day Weather Forecast");
+    searchHistory();
 }}
 
 function fiveDaysURL () {
@@ -48,4 +50,10 @@ function liveWeather () {
             $('#humidity_main').text("Humidity: " + liveData.main.humidity + "%");
 
     })
+}
+
+const searchedCity = document.getElementById("searchedCity")
+
+function searchHistory() {
+    searchedCity.textContent = cityName
 }
