@@ -26,7 +26,7 @@ function fiveDaysDisplay() {
         i = i + 8; 
         j++
     $('fivedaytext').text("Five Day Weather Forecast");
-    searchHistory();
+    
 }}
 
 function fiveDaysURL () {
@@ -48,7 +48,7 @@ function liveWeather () {
             $('#temp_main').text("Temperature: " + liveData.main.temp + "°F");
             $('#wind_main').text("Wind Speeds: " + liveData.wind.speed + " MPH");
             $('#humidity_main').text("Humidity: " + liveData.main.humidity + "%");
-
+    searchHistory();
     })
 }
 
