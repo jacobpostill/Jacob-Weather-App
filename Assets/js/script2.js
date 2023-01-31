@@ -12,16 +12,19 @@ function search() {
 }
 
 
-
+var j = 1
 function fiveDaysDisplay() {
     for (let i=1; i< week.length;) {
-        $('#date_' + i).text(week[i].dt_txt);
+        $('#date_' + j).text(week[i].dt_txt);
         let icon = "http://openweathermap.org/img/w/" + week[i].weather[0].icon + ".png";
-        $('#day_img_' + i).attr('src', icon);
-        $('#temp_' + i).text(`Temp: ${week[i].main.temp}°F`);
-        $('#wind_' + i).text(`Wind: ${week[i].wind.speed} MPH`);
-        $('#hum_3' + i).text(`Humidity: ${week[i].main.humidity}%`);
-        i = i + 8;
+        $('#day_img_' + j).attr('src', icon);
+        $('#temp_' + j).text(`Temp: ${week[i].main.temp}°F`);
+        $('#wind_' + j).text(`Wind: ${week[i].wind.speed} MPH`);
+        $('#hum_' + j).text(`Humidity: ${week[i].main.humidity}%`);
+        console.log(j)
+        console.log(week.length)
+        i = i + 8; 
+        j++
 }}
 
 function fiveDaysURL () {
