@@ -23,6 +23,13 @@ body {
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
 }
+button {
+    background-color: dodgerblue;
+    color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+
+}
 
 .card-header {
   color: var(--primary);

@@ -55,5 +55,13 @@ function liveWeather () {
 const searchedCity = document.getElementById("searchedCity")
 
 function searchHistory() {
-    searchedCity.textContent = cityName
+    let searchbutton = document.createElement("button");
+    searchbutton.textContent = cityName.value
+    searchedCity.appendChild(searchbutton);
+    searchbutton.addEventListener('click', function (event) {
+        event.preventDefault()
+        cityName.value = searchbutton.textContent
+        liveWeather();
+        fiveDaysURL ()
+    })
 }
