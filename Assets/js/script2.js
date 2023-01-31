@@ -56,6 +56,7 @@ const searchedCity = document.getElementById("searchedCity")
 
 function searchHistory() {
     let searchbutton = document.createElement("button");
+    console.log(cityName.value)
     searchbutton.textContent = cityName.value
     searchedCity.appendChild(searchbutton);
     searchbutton.addEventListener('click', function (event) {

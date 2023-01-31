@@ -28,6 +28,11 @@ button {
     color: white;
     border: solid 1px black;
     border-radius: 5px;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    width: 200px;
+    margin-left: 40px;
 
 }
 
@@ -44,7 +49,7 @@ button {
 #startBtn{
     background-color: dodgerblue;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 0px;
     margin-top: 10px;
 }
 
@@ -71,7 +76,9 @@ button {
 #cityName{
     border: 1px black;
 }
-
+.row{
+    width: 100%;
+}
 h1,
 h2,
 h3,
@@ -144,7 +151,7 @@ h6 {
   .col-auto {
     flex-grow: 1;
   }
-  
+
   .col-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
