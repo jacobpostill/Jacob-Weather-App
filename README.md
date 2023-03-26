@@ -6,7 +6,7 @@ In this assignment you will find a weather app. This weather app displays the cu
 ## Link
 https://jacobpostill.github.io/Jacob-Weather-App/
 
-![image](Assets/Screenshot 2023-03-26 124232.png)
+![image](Assets/livesite.png)
 
 
 ## Instructions
