@@ -1,10 +1,12 @@
-# 06 Server-Side APIs: Weather Dashboard
+# Jacob Weather App
 ## Description
 
 In this assignment you will find a weather app. This weather app displays the current temperature, humidity, and wind speed of a specific city. As well, you can find the following information for the next 5 days of the city.
 
 ## Link
-https://jacobpostill.github.io/Module-4-Project/
+https://jacobpostill.github.io/Jacob-Weather-App/
+
+![image](Assets/Screenshot 2023-03-26 124232.png)
 
 
 ## Instructions
